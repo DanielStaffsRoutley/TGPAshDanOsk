@@ -136,6 +136,7 @@ void ATGPAshDanOskCharacter::SetupPlayerInputComponent(class UInputComponent* Pl
 	PlayerInputComponent->BindAxis("TurnRate", this, &ATGPAshDanOskCharacter::TurnAtRate);
 	PlayerInputComponent->BindAxis("LookUp", this, &APawn::AddControllerPitchInput);
 	PlayerInputComponent->BindAxis("LookUpRate", this, &ATGPAshDanOskCharacter::LookUpAtRate);
+	PlayerInputComponent->BindAxis("")
 }
 
 void ATGPAshDanOskCharacter::OnFire()
@@ -282,6 +283,11 @@ void ATGPAshDanOskCharacter::LookUpAtRate(float Rate)
 {
 	// calculate delta for this frame from the rate information
 	AddControllerPitchInput(Rate * BaseLookUpRate * GetWorld()->GetDeltaSeconds());
+}
+
+void ATGPAshDanOskCharacter::Sprint(float value)
+{
+
 }
 
 bool ATGPAshDanOskCharacter::EnableTouchscreenMovement(class UInputComponent* PlayerInputComponent)
